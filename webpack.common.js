@@ -18,12 +18,7 @@
 const HTML_WEBPACK_PLUGIN = require("html-webpack-plugin");
 const path = require("path");
 module.exports = {
-  mode: "development",
   entry: "./src/index.js",
-  output: {
-    filename: "main.[contenthash].js", // Contenthash is used for cache busting
-    path: path.resolve(__dirname, "dist"),
-  },
   plugins: [new HTML_WEBPACK_PLUGIN({ template: "./src/template.html" })],
   module: {
     rules: [
