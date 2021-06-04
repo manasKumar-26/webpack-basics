@@ -15,6 +15,7 @@
 //     ],
 //   },
 // };
+const HTML_WEBPACK_PLUGIN = require("html-webpack-plugin");
 const path = require("path");
 module.exports = {
   mode: "development",
@@ -23,6 +24,7 @@ module.exports = {
     filename: "main.[contenthash].js", // Contenthash is used for cache busting
     path: path.resolve(__dirname, "dist"),
   },
+  plugins: [new HTML_WEBPACK_PLUGIN()],
   module: {
     rules: [
       {
