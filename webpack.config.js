@@ -24,7 +24,7 @@ module.exports = {
     filename: "main.[contenthash].js", // Contenthash is used for cache busting
     path: path.resolve(__dirname, "dist"),
   },
-  plugins: [new HTML_WEBPACK_PLUGIN()],
+  plugins: [new HTML_WEBPACK_PLUGIN({ template: "./src/template.html" })],
   module: {
     rules: [
       {
