@@ -26,6 +26,25 @@ module.exports = {
         test: /\.scss$/,
         use: ["style-loader", "css-loader", "sass-loader"], // Right >> Left -> SASS - CSS > CSS - JS > JS injected to DOM
       },
+      {
+        test: /\.html$/,
+        use: ["html-loader"],
+      },
+      {
+        test: /\.(svg | png |jpg | gif)$/,
+        use: {
+          loader: "file-loader",
+          options: {
+            name: "[name][hash].[ext]",
+            outputPath: (url, resourcePath) => {
+              if (/subfolder/.test(resourcePath)) {
+                return `images/subfolder/${url}`;
+              }
+              return `images/${url}`;
+            },
+          },
+        },
+      },
     ],
   },
 };
